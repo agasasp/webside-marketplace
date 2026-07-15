@@ -45,10 +45,10 @@ export default function Footer() {
             <h4>Kontak</h4>
             <ul>
               <li>
-                <a href="mailto:halo@webside.id">halo@webside.id</a>
+                <a href="mailto:halo@webside.id">brokosok@yuk.co.id</a>
               </li>
               <li>
-                <a href="tel:+6281234567890">+62 812-3456-7890</a>
+                <a href="tel:+6281234567890">+62 81213960183</a>
               </li>
               <li>
                 <Link href="/kontak">Jakarta, Indonesia</Link>
@@ -57,7 +57,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2026 Webside Studio. Semua hak dilindungi.</span>
+          <span>© 2026 Webside Studio.</span>
           <div className="footer-social">
             <a href="#" aria-label="Instagram">
               <IconInstagram />

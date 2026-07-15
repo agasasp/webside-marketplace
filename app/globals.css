@@ -72,9 +72,9 @@ p{ margin:0; }
 
 .container{
   width: 100%;
-  max-width: var(--container);
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 clamp(28px, 5vw, 120px);
 }
 
 .visually-hidden{
@@ -401,6 +401,9 @@ section{ padding: 96px 0; }
   z-index:1;
   margin-top: 60px;
   padding-bottom: 70px;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .hero-visual-wrap .browser-frame{
   max-width: 900px;
@@ -443,9 +446,9 @@ section{ padding: 96px 0; }
   white-space:nowrap;
 }
 .hero-badge svg{ width:14px; height:14px; color: var(--accent); flex-shrink:0; }
-.hero-badge.b1{ top:2%; left:-1%; transform: rotate(-4deg); }
-.hero-badge.b2{ top:-3%; right:1%; transform: rotate(3deg); }
-.hero-badge.b3{ bottom:10%; left:2%; transform: rotate(-3deg); }
+.hero-badge.b1{ top:2%; left:calc(50% - 520px); transform: rotate(-4deg); }
+.hero-badge.b2{ top:-3%; right:calc(50% - 520px); transform: rotate(3deg); }
+.hero-badge.b3{ bottom:10%; left:calc(50% - 500px); transform: rotate(-3deg); }
 
 @media (max-width: 760px){
   .hero-badge{ display:none; }
@@ -463,6 +466,10 @@ section{ padding: 96px 0; }
   color:#8B8B92;
   font-size:0.85rem;
   margin-bottom: 20px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 28px;
 }
 .hero-trust p strong{ color:#D6D6D9; font-weight:600; }
 .marquee{

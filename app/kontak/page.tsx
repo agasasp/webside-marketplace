@@ -55,7 +55,7 @@ export default function KontakPage() {
                   </div>
                   <div>
                     <div className="label">Email</div>
-                    <div className="value">halo@webside.id</div>
+                    <div className="value">agasasp1@gmail.com</div>
                   </div>
                 </li>
                 <li>
@@ -64,7 +64,7 @@ export default function KontakPage() {
                   </div>
                   <div>
                     <div className="label">WhatsApp</div>
-                    <div className="value">+62 812-3456-7890</div>
+                    <div className="value">+62 812139960283</div>
                   </div>
                 </li>
                 <li>

@@ -113,7 +113,7 @@ export default function HomePage() {
             </p>
             <div className="marquee">
               <div className="marquee__track">
-                {[...trustChips, ...trustChips].map((chip, i) => (
+                {[...trustChips, ...trustChips, ...trustChips, ...trustChips].map((chip, i) => (
                   <span className="marquee__chip" key={i}>
                     {chip}
                   </span>
