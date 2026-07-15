@@ -3,6 +3,7 @@ import Reveal from "@/components/Reveal";
 import BrowserFrame from "@/components/BrowserFrame";
 import { templates } from "@/lib/templates";
 import { IconPlus, IconTemplate, IconCustom, IconDev, IconSupport } from "@/components/icons";
+import HeroBg from "@/components/HeroBg";
 
 const trustChips = [
   "UMKM",
@@ -45,6 +46,7 @@ export default function HomePage() {
     <>
       {/* ================= HERO ================= */}
       <section className="hero-dark">
+        <HeroBg />
         <div className="container hero-dark__inner">
           <span className="eyebrow hero-anim hero-anim--1">Studio Website — Sejak 2026</span>
           <h1 className="hero-dark__title hero-anim hero-anim--2">
