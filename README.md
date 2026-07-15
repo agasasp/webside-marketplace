@@ -29,38 +29,3 @@ lib/
 public/
   webside.svg
 ```
-
-## Menjalankan di lokal
-
-Butuh Node.js 18.18+ (atau 20+ direkomendasikan).
-
-```bash
-npm install
-npm run dev
-```
-
-Buka http://localhost:3000
-
-## Build untuk production
-
-```bash
-npm run build
-npm start
-```
-
-## Deploy
-
-Project ini siap di-deploy ke Vercel, Netlify, atau hosting Node.js apa pun:
-
-```bash
-npm run build
-```
-
-lalu jalankan `npm start`, atau push ke Vercel untuk deploy otomatis (`vercel deploy`).
-
-## Yang berubah dari versi HTML asli
-
-- Semua interaksi (menu mobile, scroll reveal, filter template, modal detail, form kontak) sekarang pakai React state, bukan `document.querySelector` manual di `script.js`.
-- Data template dipusatkan di `lib/templates.ts` — tambah/ubah template cukup edit array di situ, otomatis muncul di halaman Home (featured) dan halaman Template (katalog lengkap).
-- Routing pakai file-based routing Next.js (`app/template`, `app/kontak`) menggantikan file `.html` terpisah.
-- CSS asli (`styles.css`) dipakai langsung tanpa perubahan sebagai `globals.css`, jadi tampilan 100% identik dengan versi awal.
