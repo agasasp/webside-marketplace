@@ -46,15 +46,15 @@ export default function HomePage() {
       {/* ================= HERO ================= */}
       <section className="hero-dark">
         <div className="container hero-dark__inner">
-          <span className="eyebrow">Studio Website — Sejak 2026</span>
-          <h1 className="hero-dark__title">
+          <span className="eyebrow hero-anim hero-anim--1">Studio Website — Sejak 2026</span>
+          <h1 className="hero-dark__title hero-anim hero-anim--2">
             Website custom, <em>tanpa drama.</em>
           </h1>
-          <p className="hero-dark__sub">
+          <p className="hero-dark__sub hero-anim hero-anim--3">
             Webside merancang dan membangun website untuk brand, studio, dan bisnis kamu — pilih dari template siap
             pakai, atau kami bangun dari nol sesuai kebutuhan.
           </p>
-          <div className="hero-dark__actions">
+          <div className="hero-dark__actions hero-anim hero-anim--4">
             <Link href="/template" className="btn btn-accent">
               Lihat Template
             </Link>

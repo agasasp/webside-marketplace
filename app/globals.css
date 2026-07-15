@@ -181,6 +181,10 @@ section{ padding: 96px 0; }
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
+.site-header .container{
+  max-width: 1400px;
+  padding: 0 40px;
+}
 .nav{
   display:flex;
   align-items:center;
@@ -666,6 +670,9 @@ section{ padding: 96px 0; }
   justify-content:space-between;
   gap: 32px;
   flex-wrap:wrap;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .cta-band h2{ color:#fff; font-size: clamp(1.6rem,3vw,2.2rem); }
 .cta-band p{ color: #C7CBCF; margin-top:10px; max-width: 42ch; }
@@ -1002,4 +1009,49 @@ section{ padding: 96px 0; }
   html{ scroll-behavior:auto; }
   .reveal{ opacity:1; transform:none; transition:none; }
   *{ animation:none !important; transition:none !important; }
+}
+
+/* ==========================================================================
+   PAGE LOAD ANIMATION — hero elements fade + slide up on load
+   ========================================================================== */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-anim {
+  opacity: 0;
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-anim--1 { animation-delay: 0.1s; }
+.hero-anim--2 { animation-delay: 0.25s; }
+.hero-anim--3 { animation-delay: 0.42s; }
+.hero-anim--4 { animation-delay: 0.58s; }
+
+/* ==========================================================================
+   CURSOR GLOW EFFECT
+   ========================================================================== */
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(222, 50, 45, 0.12) 0%, transparent 70%);
+  z-index: 0;
+  will-change: transform;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 760px) {
+  .cursor-glow { display: none; }
 }
