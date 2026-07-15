@@ -57,6 +57,11 @@ export default function HomePage() {
           <div className="hero-dark__actions hero-anim hero-anim--4">
             <Link href="/template" className="btn btn-accent">
               Lihat Template
+              <span className="btn-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
             </Link>
             <Link href="/kontak" className="btn btn-outline-light">
               Konsultasi Gratis
@@ -136,7 +141,7 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <Reveal className="services-grid">
+          <Reveal className="services-grid" stagger>
             <div className="service-card">
               <div className="service-icon">
                 <IconTemplate />
@@ -182,7 +187,7 @@ export default function HomePage() {
             <span className="eyebrow">Cara Kerja</span>
             <h2>Dari obrolan pertama sampai website live.</h2>
           </Reveal>
-          <Reveal className="process-list">
+          <Reveal className="process-list" stagger>
             {processSteps.map((step) => (
               <div className="process-item" key={step.num}>
                 <div className="process-num">{step.num}</div>
@@ -202,7 +207,7 @@ export default function HomePage() {
             <h2>Beberapa favorit dari katalog kami.</h2>
           </Reveal>
 
-          <Reveal className="template-grid">
+          <Reveal className="template-grid" stagger>
             {featured.map((tpl) => (
               <article className="template-card" key={tpl.slug}>
                 <BrowserFrame url={`webside.id/template/${tpl.slug}`} frame={tpl.frame} />

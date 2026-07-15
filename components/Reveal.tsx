@@ -6,10 +6,14 @@ export default function Reveal({
   children,
   className = "",
   as: Tag = "div",
+  delay = 0,
+  stagger = false,
 }: {
   children: ReactNode;
   className?: string;
   as?: keyof JSX.IntrinsicElements;
+  delay?: number;
+  stagger?: boolean;
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -25,20 +29,23 @@ export default function Reveal({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisible(true);
+            setTimeout(() => setVisible(true), delay);
             io.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [delay]);
 
   const Component = Tag as any;
   return (
-    <Component ref={ref} className={`reveal${visible ? " in" : ""} ${className}`.trim()}>
+    <Component
+      ref={ref}
+      className={`reveal${visible ? " in" : ""}${stagger ? " reveal-stagger" : ""} ${className}`.trim()}
+    >
       {children}
     </Component>
   );
