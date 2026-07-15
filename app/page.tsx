@@ -46,7 +46,7 @@ export default function HomePage() {
       {/* ================= HERO ================= */}
       <section className="hero-dark">
         <div className="container hero-dark__inner">
-          <span className="eyebrow">Studio Website — Sejak 2021</span>
+          <span className="eyebrow">Studio Website — Sejak 2026</span>
           <h1 className="hero-dark__title">
             Website custom, <em>tanpa drama.</em>
           </h1>
