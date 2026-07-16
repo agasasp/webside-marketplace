@@ -14,6 +14,7 @@ export interface WebTemplate {
   priceShort: string;
   desc: string;
   frame: "hero3" | "hero-btn" | "shop" | "portfolio2" | "blog2" | "grid2";
+  demoUrl?: string;
 }
 
 export const filters: { label: string; value: "semua" | TemplateCategory }[] = [
@@ -35,6 +36,7 @@ export const templates: WebTemplate[] = [
     priceShort: "Rp 799rb",
     desc: "Cocok untuk profil perusahaan atau studio yang ingin tampil rapi dan profesional, lengkap dengan halaman layanan dan tim.",
     frame: "hero3",
+    demoUrl: "https://webside.id/demo/lumina",
   },
   {
     slug: "cepat",
@@ -45,6 +47,7 @@ export const templates: WebTemplate[] = [
     priceShort: "Rp 449rb",
     desc: "Landing page satu halaman untuk peluncuran produk atau campaign — fokus ke satu ajakan bertindak, ringan dan cepat diakses.",
     frame: "hero-btn",
+    demoUrl: "https://webside.id/demo/cepat",
   },
   {
     slug: "pasar",
@@ -55,6 +58,7 @@ export const templates: WebTemplate[] = [
     priceShort: "Rp 1.2jt",
     desc: "Toko online lengkap dengan katalog produk, keranjang, dan integrasi pembayaran — siap jualan begitu domain aktif.",
     frame: "shop",
+    demoUrl: "https://webside.id/demo/pasar",
   },
   {
     slug: "folio",
@@ -65,6 +69,7 @@ export const templates: WebTemplate[] = [
     priceShort: "Rp 649rb",
     desc: "Portofolio visual untuk kreator, fotografer, atau desainer — grid galeri besar yang membiarkan karya kamu jadi pusat perhatian.",
     frame: "portfolio2",
+    demoUrl: "https://webside.id/demo/folio",
   },
   {
     slug: "rilis",
@@ -75,6 +80,7 @@ export const templates: WebTemplate[] = [
     priceShort: "Rp 599rb",
     desc: 'Untuk blog atau media kecil — daftar artikel yang jelas, halaman kategori, dan tampilan baca yang nyaman di mobile.',
     frame: "blog2",
+    demoUrl: "https://webside.id/demo/rilis",
   },
   {
     slug: "atelier",
@@ -85,6 +91,7 @@ export const templates: WebTemplate[] = [
     priceShort: "Rp 699rb",
     desc: "Nuansa studio seni untuk arsitek, ilustrator, atau desainer interior — layout tenang dengan penekanan pada tipografi.",
     frame: "hero-btn",
+    demoUrl: "https://webside.id/demo/atelier",
   },
   {
     slug: "warung",
@@ -95,6 +102,7 @@ export const templates: WebTemplate[] = [
     priceShort: "Rp 999rb",
     desc: "Versi ringkas dari Pasar — pas untuk UMKM dengan katalog produk terbatas dan pemesanan langsung via WhatsApp.",
     frame: "grid2",
+    demoUrl: "https://webside.id/demo/warung",
   },
   {
     slug: "kantor",
@@ -105,6 +113,7 @@ export const templates: WebTemplate[] = [
     priceShort: "Rp 849rb",
     desc: "Untuk perusahaan jasa atau konsultan — halaman layanan terperinci, studi kasus, dan formulir kontak yang jelas.",
     frame: "grid2",
+    demoUrl: "https://webside.id/demo/kantor",
   },
   {
     slug: "luncur",
@@ -115,6 +124,7 @@ export const templates: WebTemplate[] = [
     priceShort: "Rp 399rb",
     desc: "Landing page ringkas untuk webinar, event, atau pre-order — hitung mundur, formulir pendaftaran, dan FAQ singkat.",
     frame: "hero-btn",
+    demoUrl: "https://webside.id/demo/luncur",
   },
 ];
 

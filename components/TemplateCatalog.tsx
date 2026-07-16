@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import BrowserFrame from "./BrowserFrame";
 import { IconCheck, IconClose } from "./icons";
@@ -9,6 +9,16 @@ import { filters, templates, WHATSAPP_NUMBER, type WebTemplate } from "@/lib/tem
 export default function TemplateCatalog() {
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]["value"]>("semua");
   const [modalTpl, setModalTpl] = useState<WebTemplate | null>(null);
+
+  // lock scroll saat modal terbuka
+  useEffect(() => {
+    if (modalTpl) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [modalTpl]);
 
   const visible = templates.filter((t) => activeFilter === "semua" || t.category === activeFilter);
 
@@ -54,7 +64,7 @@ export default function TemplateCatalog() {
       </div>
 
       {/* ---------- MODAL: Detail Template ---------- */}
-      <div className={`modal-overlay${modalTpl ? " open" : ""}`}>
+      <div className={`modal-overlay${modalTpl ? " open" : ""}`} onClick={(e) => { if (e.target === e.currentTarget) setModalTpl(null); }}>
         {modalTpl && (
           <div className="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
             <div className="modal-head">
@@ -72,26 +82,30 @@ export default function TemplateCatalog() {
               <BrowserFrame url={`webside.id/template/${modalTpl.slug}`} frame={modalTpl.frame} />
               <p style={{ color: "var(--ink-soft)", fontSize: "0.95rem" }}>{modalTpl.desc}</p>
               <ul className="modal-features">
-                <li>
-                  <IconCheck /> Desain responsif untuk mobile, tablet, dan desktop
-                </li>
-                <li>
-                  <IconCheck /> Kustomisasi warna, font, dan konten disertakan
-                </li>
-                <li>
-                  <IconCheck /> Panduan pemasangan domain &amp; hosting
-                </li>
+                <li><IconCheck /> Desain responsif untuk mobile, tablet, dan desktop</li>
+                <li><IconCheck /> Kustomisasi warna, font, dan konten disertakan</li>
+                <li><IconCheck /> Panduan pemasangan domain &amp; hosting</li>
               </ul>
               <div style={{ marginTop: 14, fontFamily: "var(--font-mono)", fontSize: "1.1rem", color: "var(--ink)" }}>
                 {modalTpl.price}
               </div>
               <div className="modal-actions">
+                {modalTpl.demoUrl && (
+                  <a
+                    href={modalTpl.demoUrl}
+                    className="btn btn-outline"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+                      <path d="M2 7.5a5.5 5.5 0 1 0 11 0 5.5 5.5 0 0 0-11 0Zm5.5-2.5v5m-2.5-2.5h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                    </svg>
+                    View Demo
+                  </a>
+                )}
                 <a href={waHref(modalTpl)} className="btn btn-accent" target="_blank" rel="noopener">
                   Tanya via WhatsApp
                 </a>
-                <Link href="/kontak" className="btn btn-outline">
-                  Isi Form Kontak
-                </Link>
               </div>
             </div>
           </div>
