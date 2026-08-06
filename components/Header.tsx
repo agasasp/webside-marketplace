@@ -29,6 +29,9 @@ export default function Header() {
                 href={item.href}
                 className={pathname === item.href ? "active" : ""}
                 onClick={() => setOpen(false)}
+                style={{
+                  padding: 0
+                }}
               >
                 {item.label}
               </Link>

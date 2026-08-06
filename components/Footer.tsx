@@ -45,7 +45,7 @@ export default function Footer() {
             <h4>Kontak</h4>
             <ul>
               <li>
-                <a href="mailto:halo@webside.id">brokosok@yuk.co.id</a>
+                <a href="mailto:halo@webside.id">bro</a>
               </li>
               <li>
                 <a href="tel:+6281234567890">+62 81213960183</a>

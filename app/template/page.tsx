@@ -26,7 +26,7 @@ export default function TemplatePage() {
       </div>
 
       {/* ================= CTA: custom design ================= */}
-      <section className="bg-alt" style={{ paddingTop: 0, paddingBottom: 96 }}>
+      <section className="" style={{ paddingTop: 0, paddingBottom: 96 }}>
         <div className="container">
           <Reveal className="cta-band">
             <div>
