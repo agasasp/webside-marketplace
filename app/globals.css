@@ -595,7 +595,9 @@ section:not(.hero-dark){ padding: 96px 0; }
   display:flex;
   gap:14px;
   width:max-content;
-  animation: marquee 28s linear infinite;
+  -webkit-animation: marquee 28s linear infinite;
+          animation: marquee 28s linear infinite;
+  will-change: transform;
 }
 .marquee__chip{
   flex-shrink:0;
@@ -606,12 +608,16 @@ section:not(.hero-dark){ padding: 96px 0; }
   font-size:0.85rem;
   font-weight:500;
 }
+@-webkit-keyframes marquee{
+  from{ -webkit-transform:translateX(0); transform:translateX(0); }
+  to{ -webkit-transform:translateX(-50%); transform:translateX(-50%); }
+}
 @keyframes marquee{
   from{ transform:translateX(0); }
   to{ transform:translateX(-50%); }
 }
 @media (prefers-reduced-motion: reduce){
-  .marquee__track{ animation:none; }
+  .marquee__track{ animation:none; -webkit-animation:none; }
 }
 
 /* ==========================================================================
@@ -1583,12 +1589,27 @@ section:not(.hero-dark){ padding: 96px 0; }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior:auto; }
   .reveal{ opacity:1; transform:none; transition:none; }
+  /* cancel animations but ensure elements are still visible */
   *{ animation:none !important; transition:none !important; }
+  /* hero elements must still be visible when animation is disabled */
+  .hero-anim{ opacity:1 !important; transform:none !important; }
 }
 
 /* ==========================================================================
    PAGE LOAD ANIMATION — hero elements fade + slide up on load
    ========================================================================== */
+@-webkit-keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(28px);
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
 @keyframes heroFadeUp {
   from {
     opacity: 0;
@@ -1602,13 +1623,15 @@ section:not(.hero-dark){ padding: 96px 0; }
 
 .hero-anim {
   opacity: 0;
-  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  -webkit-animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+          animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: opacity, transform;
 }
 
-.hero-anim--1 { animation-delay: 0.1s; }
-.hero-anim--2 { animation-delay: 0.25s; }
-.hero-anim--3 { animation-delay: 0.42s; }
-.hero-anim--4 { animation-delay: 0.58s; }
+.hero-anim--1 { -webkit-animation-delay: 0.1s;  animation-delay: 0.1s; }
+.hero-anim--2 { -webkit-animation-delay: 0.25s; animation-delay: 0.25s; }
+.hero-anim--3 { -webkit-animation-delay: 0.42s; animation-delay: 0.42s; }
+.hero-anim--4 { -webkit-animation-delay: 0.58s; animation-delay: 0.58s; }
 
 
 
