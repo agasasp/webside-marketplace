@@ -178,10 +178,16 @@ export default function TemplateCatalog() {
   const totalPages = Math.ceil(displayedTemplates.length / PAGE_SIZE);
   const pageItems = displayedTemplates.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-  const handlePageChange = (next: number) => {
+  const handlePageChange = (next: number, buttonEl?: HTMLButtonElement) => {
     if (next === page || next < 1 || next > totalPages) return;
+    // blur the clicked button first so browser doesn't fight scrollTo
+    // with its own "keep focused element in view" behaviour
+    buttonEl?.blur();
     setPage(next);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // defer scroll slightly so React re-render + browser paint finish first
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 0);
   };
 
   const activeSort = sortOptions.find((o) => o.value === sort)!;
@@ -365,7 +371,7 @@ export default function TemplateCatalog() {
         <div className="tpl-pagination" aria-label="Navigasi halaman">
           <button
             className="tpl-page-btn tpl-page-btn--arrow"
-            onClick={() => handlePageChange(page - 1)}
+            onClick={(e) => handlePageChange(page - 1, e.currentTarget)}
             disabled={page === 1}
             aria-label="Halaman sebelumnya"
           >
@@ -388,7 +394,7 @@ export default function TemplateCatalog() {
               <button
                 key={p}
                 className={`tpl-page-btn${page === p ? " active" : ""}`}
-                onClick={() => handlePageChange(p)}
+                onClick={(e) => handlePageChange(p, e.currentTarget)}
                 aria-current={page === p ? "page" : undefined}
               >
                 {p}
@@ -398,7 +404,7 @@ export default function TemplateCatalog() {
 
           <button
             className="tpl-page-btn tpl-page-btn--arrow"
-            onClick={() => handlePageChange(page + 1)}
+            onClick={(e) => handlePageChange(page + 1, e.currentTarget)}
             disabled={page === totalPages}
             aria-label="Halaman berikutnya"
           >

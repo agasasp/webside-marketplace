@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
 import { WHATSAPP_NUMBER } from "@/lib/templates";
-import { IconMail, IconPhone, IconPin, IconInstagram, IconLinkedin, IconTiktok } from "@/components/icons";
+import { IconMail, IconPhone, IconPin } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Kontak — Webside",
@@ -34,104 +34,151 @@ export default function KontakPage() {
   )}`;
 
   return (
-    <div className="container">
-      <div className="page-header">
-        <span className="eyebrow">Kontak</span>
-        <h1>Yuk, mulai obrolan tentang website kamu.</h1>
-        <p>Ceritakan kebutuhan kamu lewat form, atau langsung chat via WhatsApp untuk respon lebih cepat.</p>
+    <>
+      {/* ══════════════════════════════════════
+          HERO HEADER
+      ══════════════════════════════════════ */}
+      <div className="kontak-hero">
+        <div className="container">
+          <div className="kontak-hero__inner">
+            {/* left: text + stats */}
+            <div className="kontak-hero__left">
+              <span className="eyebrow">Kontak</span>
+              <h1 className="kontak-hero__title">
+                Yuk, mulai obrolan<br />tentang website kamu.
+              </h1>
+              <p className="kontak-hero__sub">
+                Isi kebutuhan kamu di form, langsung terhubung ke WhatsApp — tim kami akan balas dengan respon yang sudah disiapkan.
+              </p>
+              <div className="kontak-hero__stats">
+                <div className="kontak-stat">
+                  <span className="kontak-stat__num">120+</span>
+                  <span className="kontak-stat__label">Website diluncurkan</span>
+                </div>
+                <div className="kontak-stat">
+                  <span className="kontak-stat__num">&lt;1 Jam</span>
+                  <span className="kontak-stat__label">Rata-rata respon</span>
+                </div>
+                <div className="kontak-stat">
+                  <span className="kontak-stat__num">4.9/5</span>
+                  <span className="kontak-stat__label">Rating klien</span>
+                </div>
+              </div>
+            </div>
+
+            {/* right: WA chat mockup */}
+            <div className="kontak-hero__right" aria-hidden="true">
+              <div className="wa-mockup">
+                <div className="wa-mockup__bar">
+                  <div className="wa-mockup__avatar" />
+                  <div>
+                    <div className="wa-mockup__name">+62 812-****-****</div>
+                    <div className="wa-mockup__status">online</div>
+                  </div>
+                </div>
+                <div className="wa-mockup__body">
+                  <div className="wa-bubble wa-bubble--out">
+                    Halo, butuh website company profile untuk usaha katering 😊
+                  </div>
+                  <div className="wa-bubble wa-bubble--in">
+                    Halo! Boleh cerita sedikit soal brand kamu? Nanti kami kirimkan template custom yang sesuai 🙌
+                  </div>
+                  <div className="wa-mockup__typing">
+                    <span /><span /><span />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <section style={{ paddingTop: 40 }}>
-        <div className="contact-grid">
-          {/* ---------- INFO ---------- */}
-          <div>
-            <div className="contact-info">
-              <h3>Studio Webside</h3>
-              <p>Senin–Jumat, 09.00–18.00 WIB. Di luar jam tersebut, tinggalkan pesan dan kami balas keesokan harinya.</p>
-              <ul className="contact-list">
+      {/* ══════════════════════════════════════
+          MAIN GRID — form + info
+      ══════════════════════════════════════ */}
+      <div className="container">
+        <div className="kontak-grid">
+          {/* ── FORM (left) ── */}
+          <ContactForm />
+
+          {/* ── INFO (right) ── */}
+          <div className="kontak-info-col">
+            {/* studio card */}
+            <div className="kontak-studio-card">
+              <p className="kontak-studio-card__label">Studio</p>
+              <p className="kontak-studio-card__name">Studio Webside</p>
+              <ul className="kontak-studio-list">
                 <li>
-                  <div className="icon-box">
-                    <IconMail />
-                  </div>
+                  <span className="kontak-studio-icon"><IconMail /></span>
                   <div>
-                    <div className="label">Email</div>
-                    <div className="value">agasasp1@gmail.com</div>
+                    <div className="kontak-studio-item__label">Email</div>
+                    <div className="kontak-studio-item__value">halo@webside.id</div>
                   </div>
                 </li>
                 <li>
-                  <div className="icon-box">
-                    <IconPhone />
-                  </div>
+                  <span className="kontak-studio-icon"><IconPhone /></span>
                   <div>
-                    <div className="label">WhatsApp</div>
-                    <div className="value">+62 812139960283</div>
+                    <div className="kontak-studio-item__label">WhatsApp</div>
+                    <div className="kontak-studio-item__value">+62 812-1396-0183</div>
                   </div>
                 </li>
                 <li>
-                  <div className="icon-box">
-                    <IconPin />
-                  </div>
+                  <span className="kontak-studio-icon"><IconPin /></span>
                   <div>
-                    <div className="label">Studio</div>
-                    <div className="value">Jl. Kemang Raya, Jakarta Selatan</div>
+                    <div className="kontak-studio-item__label">Studio</div>
+                    <div className="kontak-studio-item__value">Jl. Kemang Raya, Jakarta Selatan</div>
                   </div>
                 </li>
               </ul>
-              <div className="contact-socials">
-                <a href="#" aria-label="Instagram">
-                  <IconInstagram />
-                </a>
-                <a href="#" aria-label="LinkedIn">
-                  <IconLinkedin />
-                </a>
-                <a href="#" aria-label="TikTok">
-                  <IconTiktok />
-                </a>
+            </div>
+
+            {/* map placeholder */}
+            <div className="kontak-map">
+              <div className="kontak-map__pin">
+                <svg width="28" height="36" viewBox="0 0 28 36" fill="none">
+                  <path d="M14 0C6.27 0 0 6.27 0 14c0 9.625 14 22 14 22S28 23.625 28 14C28 6.27 21.73 0 14 0z" fill="var(--accent)"/>
+                  <circle cx="14" cy="14" r="5" fill="#fff"/>
+                </svg>
               </div>
             </div>
 
-            <div className="hours-card">
-              <div className="hours-row">
+            {/* hours */}
+            <div className="kontak-hours">
+              <p className="kontak-hours__title">Jam Operasional</p>
+              <div className="kontak-hours__row">
                 <span>Senin – Jumat</span>
                 <span>09.00 – 18.00</span>
               </div>
-              <div className="hours-row">
+              <div className="kontak-hours__row">
                 <span>Sabtu</span>
                 <span>10.00 – 15.00</span>
               </div>
-              <div className="hours-row">
+              <div className="kontak-hours__row">
                 <span>Minggu &amp; libur</span>
-                <span>Tutup</span>
+                <span className="kontak-hours__closed">Tutup</span>
               </div>
             </div>
-
-            <a href={waHref} target="_blank" rel="noopener" className="btn btn-accent btn-block" style={{ marginTop: 24 }}>
-              Chat via WhatsApp
-            </a>
           </div>
-
-          {/* ---------- FORM ---------- */}
-          <ContactForm />
         </div>
-      </section>
 
-      {/* ---------- FAQ ---------- */}
-      <section>
-        <Reveal className="section-head">
-          <span className="eyebrow">FAQ</span>
-          <h2>Pertanyaan yang sering ditanyakan.</h2>
-        </Reveal>
-        <Reveal className="faq-list">
-          {faqs.map((faq) => (
-            <details className="faq-item" key={faq.q}>
-              <summary>
-                {faq.q} <span className="plus" />
-              </summary>
-              <p>{faq.a}</p>
-            </details>
-          ))}
-        </Reveal>
-      </section>
-    </div>
+        {/* ── FAQ ── */}
+        <section>
+          <Reveal className="section-head">
+            <span className="eyebrow">FAQ</span>
+            <h2>Pertanyaan yang sering ditanyakan.</h2>
+          </Reveal>
+          <Reveal className="faq-list">
+            {faqs.map((faq) => (
+              <details className="faq-item" key={faq.q}>
+                <summary>
+                  {faq.q} <span className="plus" />
+                </summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </Reveal>
+        </section>
+      </div>
+    </>
   );
 }
